@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<div id="id01"></div>
+
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "http://api.open-notify.org/iss-now.json";
+
+function query()
+{
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+}
+
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myArr = JSON.parse(this.responseText);
+        myFunction(myArr);
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(arr) {
+    var out = "";
+    out = "lat: " + arr.iss_position.latitude;
+    out = out + " log: " + arr.iss_position.longitude;
+    document.getElementById("id01").innerHTML = out;
+}
+
+setInterval(function(){ query(); }, 3000);
+
+</script>
+</body>
+</html>
