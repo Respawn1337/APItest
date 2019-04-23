@@ -16,7 +16,7 @@ function setup() {
 function getData(data) {
     var lat = 'data.iss_position.latitude';
     var long = 'data.iss_position.longitude';
-    issX = map(lat, -90, 90, 0, width);
+    issX = map(lat, -45, 90, 0, width);
     issY = map(long, -90, 90, 0, height);
 
 }
