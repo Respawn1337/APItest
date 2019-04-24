@@ -1,0 +1,185 @@
+body {
+	background-color: blue;
+
+}
+h1 {
+	text-align: center;
+	color: white;
+    float: center;
+	text-decoration-line: underline;
+	text-decoration-color: white;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+}
+h2{
+	text-align: center;
+	color: yellow;
+    float: center;
+	text-decoration-line: underline;
+	text-decoration-color: white;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+}
+p{
+	font-family: "Times New Roman";
+	font-size: 18px;
+	text-align: left;
+	color: white;
+    padding-left: 140px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+ol{
+	color: red;
+    padding-left: 180px;
+    font-size: 16px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+/* The side navigation menu */
+.sidenav {
+    
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+ /* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 140px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+} 
+.feedback {
+    background-color : #31B0D5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border-color: #46b8da;
+  }
+  
+  #mybutton {
+    position: fixed;
+    bottom: -4px;
+    right: 10px;
+  }
+.loading-image {
+    display:block;
+    margin: 0 auto;
+    }
+
+.iframe:focus { 
+        outline: none;
+    }
+
+.iframe[seamless] { 
+        display: block;
+    }
+    .curl {
+        width:120px;
+        height:120px;
+        position: absolute;
+        bottom:0;
+        right:0;
+        background : 
+          linear-gradient(
+            135deg, 
+            #fff, 
+            #f3f3f3 45%, 
+            #ddd 50%, 
+            #aaa 50%, 
+            #bbb 56%, 
+            #ccc 62%, 
+            #f3f3f3 80%,
+            #fff 100%
+          );
+        box-shadow : 0 0 10px rgba(0, 0, 0, .5);
+        transition: all .5s ease;
+      }
+      .curl:before,
+      .curl:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 12.5%;
+        bottom: 5.8%;
+        width: 70%;
+        max-width: 300px;
+        max-height: 100px;
+        height: 55%;
+        box-shadow: 0 12px 15px rgba(0, 0, 0, .3);
+        transform: skew(-10deg) rotate(-6deg);
+      }
+      .curl:after {
+        left: auto;
+        right: 5.8%;
+        bottom: auto;
+        top: 14.16%;
+        transform: skew(-15deg) rotate(-84deg);
+      }
+      
+      .curl:hover {
+        width: 240px;
+        height: 240px;
+      }
+      .curl:hover:before,
+      .curl:hover:after {
+        box-shadow: 0 24px 30px rgba(0, 0, 0, .3);
+      }
+      .clock {
+        position: absolute;
+        top: 20%;
+        left: 85%;
+        transform: translateX(-50%) translateY(-50%);
+        color: yellow;
+        font-weight: 40px; 
+        font-size: 60px;
+        font-family: Georgia, 'Times New Roman', Times, serif ;
+        letter-spacing: 7px;
+      }

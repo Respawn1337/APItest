@@ -1,9 +1,17 @@
 var url = 'http://api.open-notify.org/iss-now.json';
-var img = 'Mercator_projection_SW.jpg';
+var img_path = 'Mercator_projection_SW.jpg';
 
+var canvas, ctx, img;
 
 function setup() {
-    // loadJSON('http://api.open-notify.org/iss-now.json', gotData);
+    canvas = document.getElementById('imgCanvas');
+    ctx = canvas.getContext('2d');
+    img = new Image();
+
+    loadImage();
+    }
+    
+ function getData(){
     fetch(url)
         .then(function(response) {
             return response.json();
@@ -13,24 +21,49 @@ function setup() {
             lat = myJson.iss_position.latitude;
             long = myJson.iss_position.longitude;
             console.log(lat+','+' '+long)
+
+            updateCanvas();
+            updateCanvasPlot(lat, long, 1, 1, "red", 5);
         });
+  }
 
-    // createCanvas(1600, 1400);
-    // ctx.drawImage(img)
-    
+  function loadImage() {
+
+    createImage();
+
+	function createImage() {
+		img = new Image();
+		img.onload = imageLoaded;
+		img.src = img_path;
+	}
+
+	function imageLoaded() {
+        updateCanvas();
+		//alert(canvas.toDataURL("image/png"));
+		
+        setInterval(function () { getData(); }, 3000);
+	}
 }
 
-/* function gotData(data){
-    console.log(data);
-    //issX = "iss_position".latitude;
-    //issY = "iss_position".longitude;
-    //console.log(issX +' ' +','+' '+ issY);
-    
+function updateCanvas() {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx = canvas.getContext("2d");
+    ctx.drawImage(img,0,0);
+}
+function updateCanvasPlot(lat, long, width, height, color, size) {
+    //calculate coradinates
+    x = (((parseFloat(lat) + 90) / 180) * img.height);
+    y = (((parseFloat(long) + 180) / 360) * img.width);
+
+    console.log("x:" + x + " y:" + y);
+
+    //Save plot
+    ctx.beginPath();
+	ctx.rect(x,y,width,height);
+	ctx.strokeStyle = color;
+	ctx.lineWidth = size;
+	ctx.stroke();
 }
 
-function draw() {
-    background(img);
-    ellipse(issX, issY, 24, 24);
-}
-*/
-setInterval(function () { setup(); }, 3000);
+window.onload = setup;
