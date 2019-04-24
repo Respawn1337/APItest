@@ -14,12 +14,20 @@ function setup() {
             long = myJson.iss_position.longitude;
             console.log(lat+','+' '+long)
         });
-
+    
     // createCanvas(1600, 1400);
     // ctx.drawImage(img)
     
 }
+// Converts image to canvas; returns new canvas element
+function convertImageToCanvas(img) {
+	var canvas = document.createElement("canvas");
+	canvas.width = image.width;
+	canvas.height = image.height;
+	canvas.getContext("2d").drawImage(img, 0, 0);
 
+	return canvas;
+}
 /* function gotData(data){
     console.log(data);
     //issX = "iss_position".latitude;
@@ -33,4 +41,6 @@ function draw() {
     ellipse(issX, issY, 24, 24);
 }
 */
+
+
 setInterval(function () { setup(); }, 3000);
