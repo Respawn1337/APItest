@@ -2,32 +2,35 @@ var url = 'http://api.open-notify.org/iss-now.json';
 var img = 'Mercator_projection_SW.jpg';
 
 
-
 function setup() {
-    createCanvas(1600, 1400);
-   /* ctx.drawImage(img)*/
-    loadJSON(url, getData, 'jsonp');
+    // loadJSON('http://api.open-notify.org/iss-now.json', gotData);
+    fetch(url)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(myJson) {
+            var iss_position = JSON.stringify(myJson.iss_position);
+            lat = myJson.iss_position.latitude;
+            long = myJson.iss_position.longitude;
+            console.log(lat+','+' '+long)
+        });
+
+    // createCanvas(1600, 1400);
+    // ctx.drawImage(img)
+    
 }
 
-/*function setup() {
+/* function gotData(data){
+    console.log(data);
+    //issX = "iss_position".latitude;
+    //issY = "iss_position".longitude;
+    //console.log(issX +' ' +','+' '+ issY);
     
-}*/
-
-function getData(data) {
-    var lat = 'data.iss_position.latitude';
-    var long = 'data.iss_position.longitude';
-    issX = map(lat, -45, 90, 0, width);
-    issY = map(long, -90, 90, 0, height);
-
 }
 
 function draw() {
     background(img);
     ellipse(issX, issY, 24, 24);
-
-
 }
-
-setInterval(function () { getData(); }, 3000);
-
-
+*/
+setInterval(function () { setup(); }, 3000);
